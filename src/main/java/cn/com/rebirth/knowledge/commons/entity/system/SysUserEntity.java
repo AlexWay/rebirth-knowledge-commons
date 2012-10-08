@@ -150,6 +150,8 @@ public class SysUserEntity extends AbstractDhtmlxBaseEntity {
 
 	private List<SysUserEntity> attentionUser = Lists.newArrayList();
 
+	private List<SysUserEntity> friendUser = Lists.newArrayList();
+
 	private SysUserRealInfoEntity realInfoEntity;
 
 	/**
@@ -477,6 +479,23 @@ public class SysUserEntity extends AbstractDhtmlxBaseEntity {
 
 	public void setRealInfoEntity(SysUserRealInfoEntity realInfoEntity) {
 		this.realInfoEntity = realInfoEntity;
+	}
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	// 中间表定义,表名采用默认命名规则
+	@JoinTable(name = "SYS_USER_FRIEND", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = { @JoinColumn(name = "FRIEND_USER_ID") })
+	// Fecth策略定义
+	@Fetch(FetchMode.SUBSELECT)
+	// 集合按id排序.
+	@OrderBy("id desc")
+	// 集合中对象id的缓存.
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+	public List<SysUserEntity> getFriendUser() {
+		return friendUser;
+	}
+
+	public void setFriendUser(List<SysUserEntity> friendUser) {
+		this.friendUser = friendUser;
 	}
 
 }

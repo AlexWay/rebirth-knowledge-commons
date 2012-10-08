@@ -1,6 +1,6 @@
 /**
- * Copyright (c) 2005-2012-9-20 www.china-cti.com
- * Id: CircleStatisticalEntity.java,17:17:25
+ * Copyright (c) 2005-2012-9-25 www.china-cti.com
+ * Id: CircleStatisticalEntity.java,11:23:36
  * @author wuwei
  */
 package cn.com.rebirth.knowledge.commons.entity.circle;
@@ -34,22 +34,31 @@ public class CircleStatisticalEntity extends BaseEntity {
 	private CircleEntity circleEntity;
 
 	/** The total visit count. */
-	private Long totalVisitCount;
+	private Integer totalVisitCount;
+
+	/** The total topic count. */
+	private Integer totalTopicCount;
 
 	/** The total reply count. */
-	private Long totalReplyCount;
+	private Integer totalReplyCount;
 
 	/** The week visit count. */
-	private Long weekVisitCount;
+	private Integer weekVisitCount;
+
+	/** The week topic count. */
+	private Integer weekTopicCount;
 
 	/** The week reply count. */
-	private Long weekReplyCount;
+	private Integer weekReplyCount;
 
 	/** The day visit count. */
-	private Long dayVisitCount;
+	private Integer dayVisitCount;
+
+	/** The day topic count. */
+	private Integer dayTopicCount;
 
 	/** The day reply count. */
-	private Long dayReplyCount;
+	private Integer dayReplyCount;
 
 	/**
 	 * Gets the circle entity.
@@ -76,7 +85,7 @@ public class CircleStatisticalEntity extends BaseEntity {
 	 *
 	 * @return the total visit count
 	 */
-	public Long getTotalVisitCount() {
+	public Integer getTotalVisitCount() {
 		return totalVisitCount;
 	}
 
@@ -85,7 +94,7 @@ public class CircleStatisticalEntity extends BaseEntity {
 	 *
 	 * @param totalVisitCount the new total visit count
 	 */
-	public void setTotalVisitCount(Long totalVisitCount) {
+	public void setTotalVisitCount(Integer totalVisitCount) {
 		this.totalVisitCount = totalVisitCount;
 	}
 
@@ -94,7 +103,7 @@ public class CircleStatisticalEntity extends BaseEntity {
 	 *
 	 * @return the total reply count
 	 */
-	public Long getTotalReplyCount() {
+	public Integer getTotalReplyCount() {
 		return totalReplyCount;
 	}
 
@@ -103,7 +112,7 @@ public class CircleStatisticalEntity extends BaseEntity {
 	 *
 	 * @param totalReplyCount the new total reply count
 	 */
-	public void setTotalReplyCount(Long totalReplyCount) {
+	public void setTotalReplyCount(Integer totalReplyCount) {
 		this.totalReplyCount = totalReplyCount;
 	}
 
@@ -112,7 +121,7 @@ public class CircleStatisticalEntity extends BaseEntity {
 	 *
 	 * @return the week visit count
 	 */
-	public Long getWeekVisitCount() {
+	public Integer getWeekVisitCount() {
 		return weekVisitCount;
 	}
 
@@ -121,7 +130,7 @@ public class CircleStatisticalEntity extends BaseEntity {
 	 *
 	 * @param weekVisitCount the new week visit count
 	 */
-	public void setWeekVisitCount(Long weekVisitCount) {
+	public void setWeekVisitCount(Integer weekVisitCount) {
 		this.weekVisitCount = weekVisitCount;
 	}
 
@@ -130,7 +139,7 @@ public class CircleStatisticalEntity extends BaseEntity {
 	 *
 	 * @return the week reply count
 	 */
-	public Long getWeekReplyCount() {
+	public Integer getWeekReplyCount() {
 		return weekReplyCount;
 	}
 
@@ -139,7 +148,7 @@ public class CircleStatisticalEntity extends BaseEntity {
 	 *
 	 * @param weekReplyCount the new week reply count
 	 */
-	public void setWeekReplyCount(Long weekReplyCount) {
+	public void setWeekReplyCount(Integer weekReplyCount) {
 		this.weekReplyCount = weekReplyCount;
 	}
 
@@ -148,7 +157,7 @@ public class CircleStatisticalEntity extends BaseEntity {
 	 *
 	 * @return the day visit count
 	 */
-	public Long getDayVisitCount() {
+	public Integer getDayVisitCount() {
 		return dayVisitCount;
 	}
 
@@ -157,7 +166,7 @@ public class CircleStatisticalEntity extends BaseEntity {
 	 *
 	 * @param dayVisitCount the new day visit count
 	 */
-	public void setDayVisitCount(Long dayVisitCount) {
+	public void setDayVisitCount(Integer dayVisitCount) {
 		this.dayVisitCount = dayVisitCount;
 	}
 
@@ -166,7 +175,7 @@ public class CircleStatisticalEntity extends BaseEntity {
 	 *
 	 * @return the day reply count
 	 */
-	public Long getDayReplyCount() {
+	public Integer getDayReplyCount() {
 		return dayReplyCount;
 	}
 
@@ -175,7 +184,61 @@ public class CircleStatisticalEntity extends BaseEntity {
 	 *
 	 * @param dayReplyCount the new day reply count
 	 */
-	public void setDayReplyCount(Long dayReplyCount) {
+	public void setDayReplyCount(Integer dayReplyCount) {
 		this.dayReplyCount = dayReplyCount;
+	}
+
+	/**
+	 * Gets the total topic count.
+	 *
+	 * @return the total topic count
+	 */
+	public Integer getTotalTopicCount() {
+		return totalTopicCount;
+	}
+
+	/**
+	 * Sets the total topic count.
+	 *
+	 * @param totalTopicCount the new total topic count
+	 */
+	public void setTotalTopicCount(Integer totalTopicCount) {
+		this.totalTopicCount = totalTopicCount;
+	}
+
+	/**
+	 * Gets the week topic count.
+	 *
+	 * @return the week topic count
+	 */
+	public Integer getWeekTopicCount() {
+		return weekTopicCount;
+	}
+
+	/**
+	 * Sets the week topic count.
+	 *
+	 * @param weekTopicCount the new week topic count
+	 */
+	public void setWeekTopicCount(Integer weekTopicCount) {
+		this.weekTopicCount = weekTopicCount;
+	}
+
+	/**
+	 * Gets the day topic count.
+	 *
+	 * @return the day topic count
+	 */
+	public Integer getDayTopicCount() {
+		return dayTopicCount;
+	}
+
+	/**
+	 * Sets the day topic count.
+	 *
+	 * @param dayTopicCount the new day topic count
+	 */
+	public void setDayTopicCount(Integer dayTopicCount) {
+		this.dayTopicCount = dayTopicCount;
 	}
 }

@@ -1,6 +1,6 @@
 /**
- * Copyright (c) 2005-2012-9-20 www.china-cti.com
- * Id: CircleEntity.java,14:39:19
+ * Copyright (c) 2005-2012-9-25 www.china-cti.com
+ * Id: CircleEntity.java,16:12:31
  * @author wuwei
  */
 package cn.com.rebirth.knowledge.commons.entity.circle;
@@ -8,6 +8,7 @@ package cn.com.rebirth.knowledge.commons.entity.circle;
 import java.util.*;
 
 import javax.persistence.*;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
@@ -100,7 +101,17 @@ public class CircleEntity extends AbstractDhtmlxBaseEntity {
 	/** The master message.  圈主寄语*/
 	private String masterMessage;
 
+	/** The statistical entity. */
 	private CircleStatisticalEntity statisticalEntity;
+
+	/** The image url. */
+	private String imageUrl;
+
+	/** The should appr. 加入圈子是否需审核*/
+	private boolean shouldAppr = false;
+
+	/** The have libiary. */
+	private boolean haveLibiary = false;
 
 	/* (non-Javadoc)
 	 * @see cn.com.rebirth.knowledge.commons.entity.AbstractBaseEntity#isChildTrem()
@@ -409,13 +420,79 @@ public class CircleEntity extends AbstractDhtmlxBaseEntity {
 		return true;
 	}
 
+	/**
+	 * Gets the statistical entity.
+	 *
+	 * @return the statistical entity
+	 */
 	@OneToOne(mappedBy = "circleEntity")
 	public CircleStatisticalEntity getStatisticalEntity() {
 		return statisticalEntity;
 	}
 
+	/**
+	 * Sets the statistical entity.
+	 *
+	 * @param statisticalEntity the new statistical entity
+	 */
 	public void setStatisticalEntity(CircleStatisticalEntity statisticalEntity) {
 		this.statisticalEntity = statisticalEntity;
+	}
+
+	/**
+	 * Gets the image url.
+	 *
+	 * @return the image url
+	 */
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	/**
+	 * Sets the image url.
+	 *
+	 * @param imageUrl the new image url
+	 */
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	/**
+	 * Checks if is should appr.
+	 *
+	 * @return true, if is should appr
+	 */
+	@Column(name = "SHOULD_APPR")
+	public boolean isShouldAppr() {
+		return shouldAppr;
+	}
+
+	/**
+	 * Sets the should appr.
+	 *
+	 * @param shouldAppr the new should appr
+	 */
+	public void setShouldAppr(boolean shouldAppr) {
+		this.shouldAppr = shouldAppr;
+	}
+
+	/**
+	 * Checks if is have libiary.
+	 *
+	 * @return true, if is have libiary
+	 */
+	@Column(name = "HAVE_LIBIARY")
+	public boolean isHaveLibiary() {
+		return haveLibiary;
+	}
+
+	/**
+	 * Sets the have libiary.
+	 *
+	 * @param haveLibiary the new have libiary
+	 */
+	public void setHaveLibiary(boolean haveLibiary) {
+		this.haveLibiary = haveLibiary;
 	}
 
 }
