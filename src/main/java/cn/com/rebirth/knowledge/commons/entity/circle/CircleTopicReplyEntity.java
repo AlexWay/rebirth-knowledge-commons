@@ -1,6 +1,6 @@
 /**
- * Copyright (c) 2005-2012-9-20 www.china-cti.com
- * Id: CircleTopicReplyEntity.java,14:39:58
+ * Copyright (c) 2005-2012-10-9 www.china-cti.com
+ * Id: CircleTopicReplyEntity.java,16:23:27
  * @author wuwei
  */
 package cn.com.rebirth.knowledge.commons.entity.circle;
@@ -44,6 +44,9 @@ public class CircleTopicReplyEntity extends AbstractDhtmlxBaseEntity {
 
 	/** The reply content. 内容*/
 	private byte[] replyContent;
+
+	/** The floor. 楼层*/
+	private Integer floor;
 
 	/* (non-Javadoc)
 	 * @see cn.com.rebirth.knowledge.commons.entity.AbstractBaseEntity#isChildTrem()
@@ -118,6 +121,8 @@ public class CircleTopicReplyEntity extends AbstractDhtmlxBaseEntity {
 	 *
 	 * @return the reply content
 	 */
+	@Lob
+	@Basic(fetch = FetchType.LAZY)
 	public byte[] getReplyContent() {
 		return replyContent;
 	}
@@ -185,6 +190,24 @@ public class CircleTopicReplyEntity extends AbstractDhtmlxBaseEntity {
 		} else if (!replyUser.equals(other.replyUser))
 			return false;
 		return true;
+	}
+
+	/**
+	 * Gets the floor.
+	 *
+	 * @return the floor
+	 */
+	public Integer getFloor() {
+		return floor;
+	}
+
+	/**
+	 * Sets the floor.
+	 *
+	 * @param floor the new floor
+	 */
+	public void setFloor(Integer floor) {
+		this.floor = floor;
 	}
 
 }

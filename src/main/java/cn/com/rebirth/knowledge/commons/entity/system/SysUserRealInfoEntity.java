@@ -43,10 +43,10 @@ public class SysUserRealInfoEntity extends AbstractDhtmlxBaseEntity {
 	private String phoneNum;
 
 	/** The province. */
-	private Long province;
+	private Integer province;
 
 	/** The city. */
-	private Long city;
+	private Integer city;
 
 	/** The address. */
 	private String address;
@@ -123,7 +123,7 @@ public class SysUserRealInfoEntity extends AbstractDhtmlxBaseEntity {
 	 *
 	 * @return the province
 	 */
-	public Long getProvince() {
+	public Integer getProvince() {
 		return province;
 	}
 
@@ -132,7 +132,7 @@ public class SysUserRealInfoEntity extends AbstractDhtmlxBaseEntity {
 	 *
 	 * @param province the new province
 	 */
-	public void setProvince(Long province) {
+	public void setProvince(Integer province) {
 		this.province = province;
 	}
 
@@ -141,7 +141,7 @@ public class SysUserRealInfoEntity extends AbstractDhtmlxBaseEntity {
 	 *
 	 * @return the city
 	 */
-	public Long getCity() {
+	public Integer getCity() {
 		return city;
 	}
 
@@ -150,7 +150,7 @@ public class SysUserRealInfoEntity extends AbstractDhtmlxBaseEntity {
 	 *
 	 * @param city the new city
 	 */
-	public void setCity(Long city) {
+	public void setCity(Integer city) {
 		this.city = city;
 	}
 
@@ -178,6 +178,7 @@ public class SysUserRealInfoEntity extends AbstractDhtmlxBaseEntity {
 	 * @return the sys user entity
 	 */
 	@OneToOne
+	@JoinColumn(name = "SYS_USER_ID")
 	public SysUserEntity getSysUserEntity() {
 		return sysUserEntity;
 	}

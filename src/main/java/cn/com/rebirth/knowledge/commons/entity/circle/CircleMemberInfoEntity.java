@@ -1,6 +1,6 @@
 /**
- * Copyright (c) 2005-2012-9-24 www.china-cti.com
- * Id: CircleMemberInfoEntity.java,14:03:13
+ * Copyright (c) 2005-2012-10-9 www.china-cti.com
+ * Id: CircleMemberInfoEntity.java,10:24:17
  * @author wuwei
  */
 package cn.com.rebirth.knowledge.commons.entity.circle;
@@ -45,7 +45,10 @@ public class CircleMemberInfoEntity extends BaseEntity {
 		/** The secondarymaster. */
 		SECONDARYMASTER("副圈主"),
 		/** The member. */
-		MEMBER("成员");
+		MEMBER("成员"),
+
+		/** The apply. */
+		APPLY("申请");
 
 		/** The name. */
 		private String name;
@@ -79,16 +82,16 @@ public class CircleMemberInfoEntity extends BaseEntity {
 	private MemberType memberType;
 
 	/** The topic count. */
-	private Integer topicCount;
+	private Integer topicCount = 0;
 
 	/** The reply count. */
-	private Integer replyCount;
+	private Integer replyCount = 0;
 
 	/** The last reply date. */
 	private Date lastReplyDate;
 
 	/** The marrow count. */
-	private Integer marrowCount;
+	private Integer marrowCount = 0;
 
 	/**
 	 * Gets the sys user entity.

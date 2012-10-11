@@ -1,6 +1,7 @@
-/*
- * Copyright (c) 2005-2012 www.china-cti.com All rights reserved
- * Info:rebirth-knowledge-commons SysUserEntity.java 2012-7-21 12:57:56 l.xue.nong$$
+/**
+ * Copyright (c) 2005-2012-10-10 www.china-cti.com
+ * Id: SysUserEntity.java,13:32:13
+ * @author wuwei
  */
 package cn.com.rebirth.knowledge.commons.entity.system;
 
@@ -29,6 +30,7 @@ import cn.com.rebirth.knowledge.commons.entity.study.*;
 
 import com.google.common.collect.*;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class SysUserEntity.
  *
@@ -146,12 +148,10 @@ public class SysUserEntity extends AbstractDhtmlxBaseEntity {
 	/** The group entities. */
 	private List<SysGroupEntity> groupEntities = Lists.newArrayList();
 
+	/** The tag belong user entities. */
 	private List<TagBelongUserEntity> tagBelongUserEntities = Lists.newArrayList();
 
-	private List<SysUserEntity> attentionUser = Lists.newArrayList();
-
-	private List<SysUserEntity> friendUser = Lists.newArrayList();
-
+	/** The real info entity. */
 	private SysUserRealInfoEntity realInfoEntity;
 
 	/**
@@ -444,6 +444,11 @@ public class SysUserEntity extends AbstractDhtmlxBaseEntity {
 
 	}
 
+	/**
+	 * Gets the tag belong user entities.
+	 *
+	 * @return the tag belong user entities
+	 */
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
 	@Fetch(FetchMode.SUBSELECT)
 	@JoinColumn(name = "sys_user")
@@ -451,51 +456,32 @@ public class SysUserEntity extends AbstractDhtmlxBaseEntity {
 		return tagBelongUserEntities;
 	}
 
+	/**
+	 * Sets the tag belong user entities.
+	 *
+	 * @param tagBelongUserEntities the new tag belong user entities
+	 */
 	public void setTagBelongUserEntities(List<TagBelongUserEntity> tagBelongUserEntities) {
 		this.tagBelongUserEntities = tagBelongUserEntities;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER)
-	// 中间表定义,表名采用默认命名规则
-	@JoinTable(name = "SYS_USER_ATTENTION", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = { @JoinColumn(name = "ATTENTIONED_USER_ID") })
-	// Fecth策略定义
-	@Fetch(FetchMode.SUBSELECT)
-	// 集合按id排序.
-	@OrderBy("id desc")
-	// 集合中对象id的缓存.
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-	public List<SysUserEntity> getAttentionUser() {
-		return attentionUser;
-	}
-
-	public void setAttentionUser(List<SysUserEntity> attentionUser) {
-		this.attentionUser = attentionUser;
-	}
-
+	/**
+	 * Gets the real info entity.
+	 *
+	 * @return the real info entity
+	 */
 	@OneToOne(mappedBy = "sysUserEntity")
 	public SysUserRealInfoEntity getRealInfoEntity() {
 		return realInfoEntity;
 	}
 
+	/**
+	 * Sets the real info entity.
+	 *
+	 * @param realInfoEntity the new real info entity
+	 */
 	public void setRealInfoEntity(SysUserRealInfoEntity realInfoEntity) {
 		this.realInfoEntity = realInfoEntity;
-	}
-
-	@ManyToMany(fetch = FetchType.EAGER)
-	// 中间表定义,表名采用默认命名规则
-	@JoinTable(name = "SYS_USER_FRIEND", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = { @JoinColumn(name = "FRIEND_USER_ID") })
-	// Fecth策略定义
-	@Fetch(FetchMode.SUBSELECT)
-	// 集合按id排序.
-	@OrderBy("id desc")
-	// 集合中对象id的缓存.
-	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-	public List<SysUserEntity> getFriendUser() {
-		return friendUser;
-	}
-
-	public void setFriendUser(List<SysUserEntity> friendUser) {
-		this.friendUser = friendUser;
 	}
 
 }

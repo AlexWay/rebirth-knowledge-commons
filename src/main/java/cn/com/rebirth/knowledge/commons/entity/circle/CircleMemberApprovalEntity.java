@@ -1,6 +1,6 @@
 /**
- * Copyright (c) 2005-2012-9-23 www.china-cti.com
- * Id: CircleMemberApprovalEntity.java,22:59:12
+ * Copyright (c) 2005-2012-10-9 www.china-cti.com
+ * Id: CircleMemberApprovalEntity.java,11:06:58
  * @author wuwei
  */
 package cn.com.rebirth.knowledge.commons.entity.circle;
@@ -42,7 +42,10 @@ public class CircleMemberApprovalEntity extends AbstractDhtmlxBaseEntity {
 		NEW_MEMBER_APPROVAL,
 
 		/** The seconday approval. 副圈主申请*/
-		SECONDAY_APPROVAL;
+		SECONDAY_APPROVAL,
+
+		/** The master approval. 圈主申請*/
+		MASTER_APPROVAL;
 	}
 
 	/** The circle entity. */
@@ -53,6 +56,9 @@ public class CircleMemberApprovalEntity extends AbstractDhtmlxBaseEntity {
 
 	/** The approval type. */
 	private ApprovalType approvalType;
+
+	/** The reason. */
+	private String reason;
 
 	/* (non-Javadoc)
 	 * @see cn.com.rebirth.knowledge.commons.entity.AbstractBaseEntity#isChildTrem()
@@ -120,6 +126,24 @@ public class CircleMemberApprovalEntity extends AbstractDhtmlxBaseEntity {
 	 */
 	public void setApprovalType(ApprovalType approvalType) {
 		this.approvalType = approvalType;
+	}
+
+	/**
+	 * Gets the reason.
+	 *
+	 * @return the reason
+	 */
+	public String getReason() {
+		return reason;
+	}
+
+	/**
+	 * Sets the reason.
+	 *
+	 * @param reason the new reason
+	 */
+	public void setReason(String reason) {
+		this.reason = reason;
 	}
 
 }
